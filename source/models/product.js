@@ -29,7 +29,7 @@ const schema = new Schema({
         required: [true,'Active é obrigatório'],
         default: true,
     },
-    tags: [{
+    tag: [{
         type: String,
         required: [true,'Tags é obrigatório'],
     }]

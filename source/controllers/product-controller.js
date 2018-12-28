@@ -38,23 +38,15 @@ exports.getById = async (req, res, next) => {
     }
 };
 
-exports.getByTags = async (req, res, next) => {
+exports.getByTag = async (req, res, next) => {
     try{
-        var data = await repository.getByTags(tags);
+        var data = await repository.getByTag(req.params.tag);
         res.status(200).send(data)
     } catch (e) {
         res.status(500).send({
             message: 'Falha ao processar sua requisição'
         });
     }
-    
-    repository
-        .getByTags(req.params.tags)
-        .then(data => {
-            res.status(201).send(data);
-        }).catch(e => {
-            res.status(400).send(e);
-        });
 };
 
 exports.post = async (req, res, next)=> {

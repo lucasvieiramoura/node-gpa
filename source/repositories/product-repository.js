@@ -27,12 +27,12 @@ exports.getById = async(id) => {
     return res;
 }
 
-exports.getByTags = async(tags) => {
+exports.getByTag = async(tag) => {
     const res = await Product
         .find({
-            tags: tags,
+            tag: tag,
             active: true
-        }, 'title description price slug tags');
+        }, 'title description price slug tag');
     return res;
 }
 
