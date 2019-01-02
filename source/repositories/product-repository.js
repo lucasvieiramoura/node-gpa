@@ -43,7 +43,7 @@ exports.create = async(data) => {
 
 exports.update = async(id, data) => {
     await Product
-    .findByIdAndUpdate(id, {
+    .findOneAndUpdate(id, {
         $set: {
             title: data.title,
             description:data.description,

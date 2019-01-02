@@ -13,10 +13,14 @@ mongoose.connect('mongodb://gpa2018:gpa_2018@ds032340.mlab.com:32340/node', {use
 
 //Carrega Models
 const Product = require('./models/product');
+const Customer = require('./models/customer');
+const Order = require ('./models/order');
 
 //Carrega Rotas
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
+const customerRoute = require('./routes/customer-route');
+
 
 app.use(bodyParser.json({
     extended: false 
@@ -24,5 +28,6 @@ app.use(bodyParser.json({
 
 app.use('/', indexRoute);
 app.use('/products', productRoute);
+app.use('/customers', customerRoute);
 
 module.exports = app;
