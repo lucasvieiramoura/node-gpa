@@ -24,9 +24,14 @@ const customerRoute = require('./routes/customer-route');
 const orderRoute = require('./routes/order-route');
 
 
-app.use(bodyParser.json({
-    extended: false 
-}));
+/*app.use(bodyParser.json({
+    //extended: false,
+    json: {limit: '50mb', extended: true},
+    urlencoded: {limit: '50mb', extended: true}
+}));*/
+
+app.use(bodyParser.json({limit: '50mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use('/', indexRoute);
 app.use('/products', productRoute);
